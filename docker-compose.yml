@@ -1,0 +1,15 @@
+version: "3.9"
+
+services: 
+  web:
+    build:
+      context: .
+      args:
+        - DEV=true
+    image: res-api-course
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/myproject
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
